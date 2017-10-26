@@ -15,16 +15,22 @@
 @protocol YZCycleScrollViewDelegate <NSObject>
 
 @optional
+// 点击轮播图的代理方法
 - (void)cycleScrollViewDidSelectedImage:(YZCycleScrollView *)cycleScrollView index:(int)index;
 @end
 
 @interface YZCycleScrollView : UIView
-@property (nonatomic, weak) id<YZCycleScrollViewDelegate> delegate;
-@property (nonatomic, assign) BOOL autoPlay;
-@property (nonatomic, assign) NSTimeInterval timeInterval;
-@property (nonatomic, strong) NSArray *images;
+
+@property (nonatomic, weak) id<YZCycleScrollViewDelegate> delegate;// 代理
+
+@property (nonatomic, strong) NSArray *titles;// 标题
+@property (nonatomic, strong) NSArray *images;// 图片
+@property (nonatomic, strong) NSArray *urls;// 链接地址
+
+@property (nonatomic, assign) BOOL autoPlay;// 自动播放
+@property (nonatomic, assign) NSTimeInterval timeInterval;// 间隔播放时间
 
 // 初始化创建轮播视图
-- (instancetype)initWithFrame:(CGRect)frame images:(NSArray *)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval;
+- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles images:(NSArray *)images urls:(NSArray *)urls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval;
 
 @end

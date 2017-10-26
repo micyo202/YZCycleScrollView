@@ -1,1 +1,4 @@
 # YZCycleScrollView
+自定义轮播图片，支持SDWebImage网络加载图片
+使用方法：将 YZCycleScrollView.h、YZCycleScrollView.m两个文件拖入工程中，
+引入YZCycleScrollView.h头文件即可，详细使用及说明请查看简书

@@ -11,22 +11,28 @@
 #import "YZCycleScrollView.h"
 #import "UIImageView+WebCache.h"
 
-#define PAGE_H 20
+#define FRAME_WIDTH     self.frame.size.width
+#define FRAME_HEIGHT    self.frame.size.height
+#define PAGE_HEIGHT     20
 
 @interface YZCycleScrollView() <UIScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *currentImages;
 @property (nonatomic, assign) int currentPage;
+@property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UIPageControl *pageControl;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @end
 
 @implementation YZCycleScrollView
 
-- (instancetype)initWithFrame:(CGRect)frame images:(NSArray *)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
+#pragma mark - 初始化创建组件
+- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles images:(NSArray *)images urls:(NSArray *)urls autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval {
     if (self = [super initWithFrame:frame]) {
         _autoPlay = isAuto;
         _timeInterval = timeInterval;
+        _titles = titles;
         _images = images;
+        _urls = urls;
         _currentPage = 0;
         
         [self addScrollView];
@@ -40,16 +46,30 @@
 
 #pragma mark - 添加焦点页面控制器
 - (void)addPageControl {
-    CGFloat height = self.frame.size.height;
-    CGFloat width = self.frame.size.width;
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, height-PAGE_H, width, PAGE_H)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, FRAME_HEIGHT-PAGE_HEIGHT, FRAME_WIDTH, PAGE_HEIGHT)];
     bgView.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.2];
-    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, width, PAGE_H)];
-    pageControl.numberOfPages = self.images.count;
-    pageControl.currentPage = 0;
-    pageControl.userInteractionEnabled = NO;
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, PAGE_HEIGHT)];
+    pageControl.numberOfPages = self.images.count;// 小圆点的个数
+    pageControl.currentPage = 0;// 初始化页码值
+    pageControl.userInteractionEnabled = NO;// 禁止用户对page条操作
+    
+    // 根据原点数量重新计算原点位置，(居右)
+    CGSize pointSize = [pageControl sizeForNumberOfPages:self.images.count];
+    CGFloat page_x = -(pageControl.bounds.size.width - pointSize.width - 20) / 2 ;
+    [pageControl setBounds:CGRectMake(page_x, pageControl.bounds.origin.y, pageControl.bounds.size.width, pageControl.bounds.size.height)];
     _pageControl = pageControl;
     [bgView addSubview:self.pageControl];
+    
+    // 标题展示
+    if(_titles.count > 0){
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, FRAME_WIDTH - pointSize.width - 40, PAGE_HEIGHT)];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.font = [UIFont boldSystemFontOfSize:18];// 字体加粗
+        titleLabel.text = _titles[0];// 默认展示第一个标题
+        _titleLabel = titleLabel;
+        [bgView addSubview:self.titleLabel];
+    }
+    
     [self addSubview:bgView];
 }
 
@@ -149,9 +169,11 @@
         [self refreshImages];
     }
     // 滑动变换标题
+    _titleLabel.text = [_titles objectAtIndex:_currentPage];
     
 }
 
+#pragma mark - scrollView减速停止时执行方法
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:YES];
 }
