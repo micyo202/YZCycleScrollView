@@ -143,8 +143,8 @@
 		1804C9F21FA08FF800FCC6F1 /* YZCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				18A274331FA9CF2100E8FA0F /* Plugins */,
 				1804CA0A1FA090CA00FCC6F1 /* SDWebImage */,
-				1804CA091FA090BA00FCC6F1 /* View */,
 				1804C9F31FA08FF800FCC6F1 /* AppDelegate.h */,
 				1804C9F41FA08FF800FCC6F1 /* AppDelegate.m */,
 				1804C9F61FA08FF800FCC6F1 /* ViewController.h */,
@@ -156,15 +156,6 @@
 				1804CA021FA08FF800FCC6F1 /* main.m */,
 			);
 			path = YZCycleScrollView;
-			sourceTree = "<group>";
-		};
-		1804CA091FA090BA00FCC6F1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1804CA5E1FA090DE00FCC6F1 /* YZCycleScrollView.h */,
-				1804CA5F1FA090DE00FCC6F1 /* YZCycleScrollView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		1804CA0A1FA090CA00FCC6F1 /* SDWebImage */ = {
@@ -235,6 +226,15 @@
 				1804CA1E1FA090CA00FCC6F1 /* FLAnimatedImageView.h */,
 			);
 			path = FLAnimatedImage;
+			sourceTree = "<group>";
+		};
+		18A274331FA9CF2100E8FA0F /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				1804CA5E1FA090DE00FCC6F1 /* YZCycleScrollView.h */,
+				1804CA5F1FA090DE00FCC6F1 /* YZCycleScrollView.m */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
