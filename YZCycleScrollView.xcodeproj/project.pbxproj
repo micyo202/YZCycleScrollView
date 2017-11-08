@@ -127,7 +127,10 @@
 		1804C9E71FA08FF800FCC6F1 = {
 			isa = PBXGroup;
 			children = (
+				1804CA0A1FA090CA00FCC6F1 /* SDWebImage */,
 				1804C9F21FA08FF800FCC6F1 /* YZCycleScrollView */,
+				180A90B01FB2AAA300F7D213 /* YZCycleScrollViewDemo */,
+				180A90AF1FB2AA9A00F7D213 /* Supporting Files */,
 				1804C9F11FA08FF800FCC6F1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,17 +146,8 @@
 		1804C9F21FA08FF800FCC6F1 /* YZCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				18A274331FA9CF2100E8FA0F /* Plugins */,
-				1804CA0A1FA090CA00FCC6F1 /* SDWebImage */,
-				1804C9F31FA08FF800FCC6F1 /* AppDelegate.h */,
-				1804C9F41FA08FF800FCC6F1 /* AppDelegate.m */,
-				1804C9F61FA08FF800FCC6F1 /* ViewController.h */,
-				1804C9F71FA08FF800FCC6F1 /* ViewController.m */,
-				1804C9F91FA08FF800FCC6F1 /* Main.storyboard */,
-				1804C9FC1FA08FF800FCC6F1 /* Assets.xcassets */,
-				1804C9FE1FA08FF800FCC6F1 /* LaunchScreen.storyboard */,
-				1804CA011FA08FF800FCC6F1 /* Info.plist */,
-				1804CA021FA08FF800FCC6F1 /* main.m */,
+				1804CA5E1FA090DE00FCC6F1 /* YZCycleScrollView.h */,
+				1804CA5F1FA090DE00FCC6F1 /* YZCycleScrollView.m */,
 			);
 			path = YZCycleScrollView;
 			sourceTree = "<group>";
@@ -228,13 +222,27 @@
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
-		18A274331FA9CF2100E8FA0F /* Plugins */ = {
+		180A90AF1FB2AA9A00F7D213 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1804CA5E1FA090DE00FCC6F1 /* YZCycleScrollView.h */,
-				1804CA5F1FA090DE00FCC6F1 /* YZCycleScrollView.m */,
+				1804C9F31FA08FF800FCC6F1 /* AppDelegate.h */,
+				1804C9F41FA08FF800FCC6F1 /* AppDelegate.m */,
+				1804C9FC1FA08FF800FCC6F1 /* Assets.xcassets */,
+				1804C9FE1FA08FF800FCC6F1 /* LaunchScreen.storyboard */,
+				1804CA011FA08FF800FCC6F1 /* Info.plist */,
+				1804CA021FA08FF800FCC6F1 /* main.m */,
 			);
-			path = Plugins;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		180A90B01FB2AAA300F7D213 /* YZCycleScrollViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1804C9F61FA08FF800FCC6F1 /* ViewController.h */,
+				1804C9F71FA08FF800FCC6F1 /* ViewController.m */,
+				1804C9F91FA08FF800FCC6F1 /* Main.storyboard */,
+			);
+			path = YZCycleScrollViewDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = YZCycleScrollView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yan.YZCycleScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -486,7 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = YZCycleScrollView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yan.YZCycleScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";

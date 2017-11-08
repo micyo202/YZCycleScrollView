@@ -1,11 +1,11 @@
 /************************************************************
  Class    : YZCycleScrollView.m
- Describe : 自己扩展无线循环轮播图
+ Describe : 无限循环轮播图
  Company  : Prient
- Author   : Yanzheng 严正
+ Author   : Yanzheng
  Date     : 2017-10-25
- Version  : 1.0
  Declare  : Copyright © 2017 Yanzheng. All rights reserved.
+ Url      : https://github.com/micyo202/YZCycleScrollView
  ************************************************************/
 
 #import "YZCycleScrollView.h"
