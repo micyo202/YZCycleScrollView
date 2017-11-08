@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '8.0'
     s.source       = {:git => 'https://github.com/micyo202/YZCycleScrollView.git', :tag => s.version}
     s.source_files = 'YZCycleScrollView/**/*.{h,m}'
+    s.dependency 'SDWebImage'
     s.requires_arc = true
 end
